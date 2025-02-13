@@ -3,10 +3,12 @@
 import CustomTable from "@/components/Shared/Table/CustomTable";
 import { ColumnsType } from "antd/es/table";
 import { useState } from "react";
-import {  Switch, Button } from "antd";
+import { Switch, Button } from "antd";
 import { MoreOutlined } from "@ant-design/icons";
 import useGetRefundOrders from "@/query/TableContentQuery";
 import Dropdown from "antd/es/dropdown/dropdown";
+import usePostRefundOrders from "@/query/TableContentMutation";
+import CustomNotification from "@/components/Shared/Notification";
 
 interface DataType {
     key: string;
@@ -23,15 +25,45 @@ interface DataType {
 
 const TableContent = () => {
     const [currentPage, setCurrentPage] = useState(1);
-    const { data: refundOrders, loading, error } = useGetRefundOrders();
-    console.log(refundOrders);
+    const { data: refundOrders = [], isLoading, refetch } = useGetRefundOrders();  
+    const { mutate, isPending } = usePostRefundOrders();
 
     const handleDecisionChange = (record: DataType, decision: string) => {
         console.log(`Changing decision for order ${record.id} to ${decision}`);
+        refetch(); // Fetch updated data from the server
     };
 
     const handleActiveChange = (record: DataType, checked: boolean) => {
-        console.log(`Changing active status for order ${record.id} to ${checked}`);
+        if (!record.id || !record.reason || !record.store_name || !record.items) {
+            console.error("Incomplete data, cannot update active status");
+            return;
+        }
+
+        mutate(
+            { id: record.id, active: checked },
+            {
+                onSuccess: (res) => {
+                    console.log(`Active status for order ${record.id} updated successfully`);
+
+                    // Show success notification
+                    CustomNotification({
+                        type: "success",
+                        message: res?.message || "Active status updated successfully",
+                    });
+
+                    // Fetch latest data from the server
+                    refetch();
+                },
+                onError: (error) => {
+                    console.error(`Failed to update active status for order ${record.id}:`, error);
+
+                    CustomNotification({
+                        type: "error",
+                        message: error.message || "Failed to update active status",
+                    });
+                },
+            }
+        );
     };
 
     const handleViewDetails = (record: DataType) => {
@@ -53,7 +85,11 @@ const TableContent = () => {
             dataIndex: "active",
             key: "active",
             render: (_, record) => (
-                <Switch checked={record.active} onChange={(checked) => handleActiveChange(record, checked)} />
+                <Switch
+                    checked={record.active}
+                    onChange={(checked) => handleActiveChange(record, checked)}
+                    loading={isPending} // Show loading state when updating
+                />
             ),
         },
         {
@@ -70,9 +106,21 @@ const TableContent = () => {
                     <Dropdown
                         menu={{
                             items: [
-                                { key: "reject", label: "Reject", onClick: () => handleDecisionChange(record, "Reject") },
-                                { key: "accept", label: "Accept", onClick: () => handleDecisionChange(record, "Accept") },
-                                { key: "escalate", label: "Escalate", onClick: () => handleDecisionChange(record, "Escalate") },
+                                {
+                                    key: "reject",
+                                    label: "Reject",
+                                    onClick: () => handleDecisionChange(record, "Reject"),
+                                },
+                                {
+                                    key: "accept",
+                                    label: "Accept",
+                                    onClick: () => handleDecisionChange(record, "Accept"),
+                                },
+                                {
+                                    key: "escalate",
+                                    label: "Escalate",
+                                    onClick: () => handleDecisionChange(record, "Escalate"),
+                                },
                             ],
                         }}
                         trigger={["click"]}
@@ -92,13 +140,13 @@ const TableContent = () => {
     return (
         <div style={{ display: "flex", justifyContent: "center" }}>
             <CustomTable
-                dataSource={refundOrders || []}
+                dataSource={refundOrders} 
                 columns={columns}
                 onPageChange={handlePageChange}
                 page={currentPage}
                 items={10}
                 pages={5}
-                loading={loading}
+                loading={isLoading}
             />
         </div>
     );

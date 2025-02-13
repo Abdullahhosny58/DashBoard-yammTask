@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.scss";
-import Providers from "@/query/Providers";
+import Providers from "@/providers/Providers";
 import Sidebar from "@/components/Layout/Sidebar/Sidebar";
 import Navbar from "@/components/Layout/Navbar/Navbar";
 

@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const useGetRefundOrders= () => {
     const result = useQuery({
-        queryKey: ["Products"],
+        queryKey: ["RefundOrders"],
         queryFn: getRefundOrders,
     });
 

@@ -6,7 +6,7 @@ import styles from "./Notification.module.scss";
 
 interface NotificationProps {
     type: "success" | "error";
-    message: any;
+    message: string;
     icon?: React.ReactNode;
     placement?: NotificationPlacement;
     style?: React.CSSProperties;

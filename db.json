@@ -7,11 +7,21 @@
       "store_logo": "https://via.placeholder.com/50",
       "store_url": "https://techstore.com",
       "amount": 150,
-      "active": true,
+      "active": false,
       "decision": null,
       "items": [
-        { "id": "item1", "name": "Laptop", "price": 100, "quantity": 1 },
-        { "id": "item2", "name": "Mouse", "price": 50, "quantity": 1 }
+        {
+          "id": "item1",
+          "name": "Laptop",
+          "price": 100,
+          "quantity": 1
+        },
+        {
+          "id": "item2",
+          "name": "Mouse",
+          "price": 50,
+          "quantity": 1
+        }
       ]
     },
     {
@@ -24,7 +34,12 @@
       "active": false,
       "decision": "Approved",
       "items": [
-        { "id": "item3", "name": "Jacket", "price": 80, "quantity": 1 }
+        {
+          "id": "item3",
+          "name": "Jacket",
+          "price": 80,
+          "quantity": 1
+        }
       ]
     },
     {
@@ -37,7 +52,12 @@
       "active": true,
       "decision": null,
       "items": [
-        { "id": "item4", "name": "Running Shoes", "price": 120, "quantity": 1 }
+        {
+          "id": "item4",
+          "name": "Running Shoes",
+          "price": 120,
+          "quantity": 1
+        }
       ]
     },
     {
@@ -50,7 +70,12 @@
       "active": false,
       "decision": "Rejected",
       "items": [
-        { "id": "item5", "name": "Glass Vase", "price": 60, "quantity": 1 }
+        {
+          "id": "item5",
+          "name": "Glass Vase",
+          "price": 60,
+          "quantity": 1
+        }
       ]
     },
     {
@@ -63,7 +88,12 @@
       "active": true,
       "decision": null,
       "items": [
-        { "id": "item6", "name": "Smartphone", "price": 200, "quantity": 1 }
+        {
+          "id": "item6",
+          "name": "Smartphone",
+          "price": 200,
+          "quantity": 1
+        }
       ]
     },
     {
@@ -76,7 +106,12 @@
       "active": false,
       "decision": "Approved",
       "items": [
-        { "id": "item7", "name": "Headphones", "price": 45, "quantity": 1 }
+        {
+          "id": "item7",
+          "name": "Headphones",
+          "price": 45,
+          "quantity": 1
+        }
       ]
     },
     {
@@ -89,7 +124,12 @@
       "active": true,
       "decision": null,
       "items": [
-        { "id": "item8", "name": "T-Shirt", "price": 70, "quantity": 1 }
+        {
+          "id": "item8",
+          "name": "T-Shirt",
+          "price": 70,
+          "quantity": 1
+        }
       ]
     },
     {
@@ -102,7 +142,12 @@
       "active": false,
       "decision": "Rejected",
       "items": [
-        { "id": "item9", "name": "Tablet", "price": 110, "quantity": 1 }
+        {
+          "id": "item9",
+          "name": "Tablet",
+          "price": 110,
+          "quantity": 1
+        }
       ]
     },
     {
@@ -115,7 +160,12 @@
       "active": true,
       "decision": null,
       "items": [
-        { "id": "item10", "name": "Gaming Console", "price": 250, "quantity": 1 }
+        {
+          "id": "item10",
+          "name": "Gaming Console",
+          "price": 250,
+          "quantity": 1
+        }
       ]
     },
     {
@@ -128,7 +178,12 @@
       "active": false,
       "decision": "Approved",
       "items": [
-        { "id": "item11", "name": "Grocery Pack", "price": 30, "quantity": 1 }
+        {
+          "id": "item11",
+          "name": "Grocery Pack",
+          "price": 30,
+          "quantity": 1
+        }
       ]
     },
     {
@@ -141,7 +196,12 @@
       "active": true,
       "decision": null,
       "items": [
-        { "id": "item12", "name": "Jeans", "price": 95, "quantity": 1 }
+        {
+          "id": "item12",
+          "name": "Jeans",
+          "price": 95,
+          "quantity": 1
+        }
       ]
     },
     {
@@ -154,7 +214,12 @@
       "active": false,
       "decision": "Rejected",
       "items": [
-        { "id": "item13", "name": "Dining Table", "price": 500, "quantity": 1 }
+        {
+          "id": "item13",
+          "name": "Dining Table",
+          "price": 500,
+          "quantity": 1
+        }
       ]
     },
     {
@@ -167,7 +232,12 @@
       "active": true,
       "decision": null,
       "items": [
-        { "id": "item14", "name": "Protein Bar", "price": 20, "quantity": 1 }
+        {
+          "id": "item14",
+          "name": "Protein Bar",
+          "price": 20,
+          "quantity": 1
+        }
       ]
     },
     {
@@ -180,7 +250,12 @@
       "active": false,
       "decision": "Approved",
       "items": [
-        { "id": "item15", "name": "Designer Watch", "price": 600, "quantity": 1 }
+        {
+          "id": "item15",
+          "name": "Designer Watch",
+          "price": 600,
+          "quantity": 1
+        }
       ]
     },
     {
@@ -193,7 +268,12 @@
       "active": true,
       "decision": null,
       "items": [
-        { "id": "item16", "name": "Office Chairs", "price": 150, "quantity": 2 }
+        {
+          "id": "item16",
+          "name": "Office Chairs",
+          "price": 150,
+          "quantity": 2
+        }
       ]
     },
     {
@@ -206,8 +286,46 @@
       "active": false,
       "decision": "Rejected",
       "items": [
-        { "id": "item17", "name": "Cookware Set", "price": 75, "quantity": 1 }
+        {
+          "id": "item17",
+          "name": "Cookware Set",
+          "price": 75,
+          "quantity": 1
+        }
       ]
+    },
+    {
+      "id": "7f5f"
+    },
+    {
+      "id": "4845"
+    },
+    {
+      "id": "e3fb"
+    },
+    {
+      "id": "ea02"
+    },
+    {
+      "id": "1510"
+    },
+    {
+      "id": "72cc"
+    },
+    {
+      "id": "9cb7"
+    },
+    {
+      "id": "20a1"
+    },
+    {
+      "id": "4f89"
+    },
+    {
+      "id": "0105"
+    },
+    {
+      "id": "63d2"
     }
   ]
 }
