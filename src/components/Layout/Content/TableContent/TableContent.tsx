@@ -9,6 +9,7 @@ import useGetRefundOrders from "@/query/TableContentQuery";
 import Dropdown from "antd/es/dropdown/dropdown";
 import usePostRefundOrders from "@/query/TableContentMutation";
 import CustomNotification from "@/components/Shared/Notification";
+import axios from "axios";
 
 interface DataType {
     key: string;
@@ -28,9 +29,31 @@ const TableContent = () => {
     const { data: refundOrders = [], isLoading, refetch } = useGetRefundOrders();  
     const { mutate, isPending } = usePostRefundOrders();
 
+    const updateDecision = async (id: string, decision: string) => {
+        const response = await axios.patch(`http://localhost:5000/refundOrders/${id}`, { decision });
+        return response.data;
+    };
+
     const handleDecisionChange = (record: DataType, decision: string) => {
-        console.log(`Changing decision for order ${record.id} to ${decision}`);
-        refetch(); // Fetch updated data from the server
+        updateDecision(record.id, decision)
+            .then((res) => {
+                console.log(`Decision for order ${record.id} updated successfully to ${decision}`);
+
+                CustomNotification({
+                    type: "success",
+                    message: res?.message || "Decision updated successfully",
+                });
+
+                refetch(); // Fetch updated data from the server
+            })
+            .catch((error) => {
+                console.error(`Failed to update decision for order ${record.id}:`, error);
+
+                CustomNotification({
+                    type: "error",
+                    message: error.message || "Failed to update decision",
+                });
+            });
     };
 
     const handleActiveChange = (record: DataType, checked: boolean) => {
@@ -45,13 +68,11 @@ const TableContent = () => {
                 onSuccess: (res) => {
                     console.log(`Active status for order ${record.id} updated successfully`);
 
-                    // Show success notification
                     CustomNotification({
                         type: "success",
                         message: res?.message || "Active status updated successfully",
                     });
 
-                    // Fetch latest data from the server
                     refetch();
                 },
                 onError: (error) => {
