@@ -1,19 +1,213 @@
 {
-    "refundOrders": [
-      {
-        "id": "1",
-        "reason": "Product defect",
-        "store_name": "Tech Store",
-        "store_logo": "https://via.placeholder.com/50",
-        "store_url": "https://techstore.com",
-        "amount": 150,
-        "active": true,
-        "decision": null,
-        "items": [
-          { "id": "item1", "name": "Laptop", "price": 100, "quantity": 1 },
-          { "id": "item2", "name": "Mouse", "price": 50, "quantity": 1 }
-        ]
-      }
-    ]
-  }
-  
+  "refundOrders": [
+    {
+      "id": "1",
+      "reason": "Product defect",
+      "store_name": "Tech Store",
+      "store_logo": "https://via.placeholder.com/50",
+      "store_url": "https://techstore.com",
+      "amount": 150,
+      "active": true,
+      "decision": null,
+      "items": [
+        { "id": "item1", "name": "Laptop", "price": 100, "quantity": 1 },
+        { "id": "item2", "name": "Mouse", "price": 50, "quantity": 1 }
+      ]
+    },
+    {
+      "id": "2",
+      "reason": "Wrong item received",
+      "store_name": "Fashion Hub",
+      "store_logo": "https://via.placeholder.com/50",
+      "store_url": "https://fashionhub.com",
+      "amount": 80,
+      "active": false,
+      "decision": "Approved",
+      "items": [
+        { "id": "item3", "name": "Jacket", "price": 80, "quantity": 1 }
+      ]
+    },
+    {
+      "id": "3",
+      "reason": "Size issue",
+      "store_name": "Shoe World",
+      "store_logo": "https://via.placeholder.com/50",
+      "store_url": "https://shoeworld.com",
+      "amount": 120,
+      "active": true,
+      "decision": null,
+      "items": [
+        { "id": "item4", "name": "Running Shoes", "price": 120, "quantity": 1 }
+      ]
+    },
+    {
+      "id": "4",
+      "reason": "Item damaged",
+      "store_name": "Home Essentials",
+      "store_logo": "https://via.placeholder.com/50",
+      "store_url": "https://homeessentials.com",
+      "amount": 60,
+      "active": false,
+      "decision": "Rejected",
+      "items": [
+        { "id": "item5", "name": "Glass Vase", "price": 60, "quantity": 1 }
+      ]
+    },
+    {
+      "id": "5",
+      "reason": "Late delivery",
+      "store_name": "Gadget Zone",
+      "store_logo": "https://via.placeholder.com/50",
+      "store_url": "https://gadgetzone.com",
+      "amount": 200,
+      "active": true,
+      "decision": null,
+      "items": [
+        { "id": "item6", "name": "Smartphone", "price": 200, "quantity": 1 }
+      ]
+    },
+    {
+      "id": "6",
+      "reason": "Not as described",
+      "store_name": "Online Mart",
+      "store_logo": "https://via.placeholder.com/50",
+      "store_url": "https://onlinemart.com",
+      "amount": 45,
+      "active": false,
+      "decision": "Approved",
+      "items": [
+        { "id": "item7", "name": "Headphones", "price": 45, "quantity": 1 }
+      ]
+    },
+    {
+      "id": "7",
+      "reason": "Received wrong color",
+      "store_name": "Fashion Hub",
+      "store_logo": "https://via.placeholder.com/50",
+      "store_url": "https://fashionhub.com",
+      "amount": 70,
+      "active": true,
+      "decision": null,
+      "items": [
+        { "id": "item8", "name": "T-Shirt", "price": 70, "quantity": 1 }
+      ]
+    },
+    {
+      "id": "8",
+      "reason": "Missing accessories",
+      "store_name": "Tech World",
+      "store_logo": "https://via.placeholder.com/50",
+      "store_url": "https://techworld.com",
+      "amount": 110,
+      "active": false,
+      "decision": "Rejected",
+      "items": [
+        { "id": "item9", "name": "Tablet", "price": 110, "quantity": 1 }
+      ]
+    },
+    {
+      "id": "9",
+      "reason": "Defective product",
+      "store_name": "Gadget Shop",
+      "store_logo": "https://via.placeholder.com/50",
+      "store_url": "https://gadgetshop.com",
+      "amount": 250,
+      "active": true,
+      "decision": null,
+      "items": [
+        { "id": "item10", "name": "Gaming Console", "price": 250, "quantity": 1 }
+      ]
+    },
+    {
+      "id": "10",
+      "reason": "Late delivery",
+      "store_name": "Supermarket Express",
+      "store_logo": "https://via.placeholder.com/50",
+      "store_url": "https://supermarketexpress.com",
+      "amount": 30,
+      "active": false,
+      "decision": "Approved",
+      "items": [
+        { "id": "item11", "name": "Grocery Pack", "price": 30, "quantity": 1 }
+      ]
+    },
+    {
+      "id": "11",
+      "reason": "Wrong size",
+      "store_name": "Clothing Hub",
+      "store_logo": "https://via.placeholder.com/50",
+      "store_url": "https://clothinghub.com",
+      "amount": 95,
+      "active": true,
+      "decision": null,
+      "items": [
+        { "id": "item12", "name": "Jeans", "price": 95, "quantity": 1 }
+      ]
+    },
+    {
+      "id": "12",
+      "reason": "Damaged on arrival",
+      "store_name": "Furniture World",
+      "store_logo": "https://via.placeholder.com/50",
+      "store_url": "https://furnitureworld.com",
+      "amount": 500,
+      "active": false,
+      "decision": "Rejected",
+      "items": [
+        { "id": "item13", "name": "Dining Table", "price": 500, "quantity": 1 }
+      ]
+    },
+    {
+      "id": "13",
+      "reason": "Expired product",
+      "store_name": "Organic Store",
+      "store_logo": "https://via.placeholder.com/50",
+      "store_url": "https://organicstore.com",
+      "amount": 20,
+      "active": true,
+      "decision": null,
+      "items": [
+        { "id": "item14", "name": "Protein Bar", "price": 20, "quantity": 1 }
+      ]
+    },
+    {
+      "id": "14",
+      "reason": "Counterfeit product",
+      "store_name": "Luxury Shop",
+      "store_logo": "https://via.placeholder.com/50",
+      "store_url": "https://luxuryshop.com",
+      "amount": 600,
+      "active": false,
+      "decision": "Approved",
+      "items": [
+        { "id": "item15", "name": "Designer Watch", "price": 600, "quantity": 1 }
+      ]
+    },
+    {
+      "id": "15",
+      "reason": "Incorrect quantity",
+      "store_name": "Bulk Mart",
+      "store_logo": "https://via.placeholder.com/50",
+      "store_url": "https://bulkmar.com",
+      "amount": 150,
+      "active": true,
+      "decision": null,
+      "items": [
+        { "id": "item16", "name": "Office Chairs", "price": 150, "quantity": 2 }
+      ]
+    },
+    {
+      "id": "16",
+      "reason": "Received different product",
+      "store_name": "Online Bazaar",
+      "store_logo": "https://via.placeholder.com/50",
+      "store_url": "https://onlinebazaar.com",
+      "amount": 75,
+      "active": false,
+      "decision": "Rejected",
+      "items": [
+        { "id": "item17", "name": "Cookware Set", "price": 75, "quantity": 1 }
+      ]
+    }
+  ]
+}
