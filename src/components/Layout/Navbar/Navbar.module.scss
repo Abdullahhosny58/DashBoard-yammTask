@@ -1,0 +1,28 @@
+.navbar {
+  background: var(--clr-bg-white);
+  padding: 0 20px;
+  height: 64px;
+}
+
+.menuButton {
+  font-size: 20px;
+  display: none;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .menuButton {
+    display: inline-block;
+  }
+}

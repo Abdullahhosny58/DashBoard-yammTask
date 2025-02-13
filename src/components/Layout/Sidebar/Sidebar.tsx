@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import { Layout, Menu } from "antd";
 import {
   DashboardOutlined,
@@ -9,7 +9,7 @@ import styles from "./Sidebar.module.scss";
 
 const { Sider } = Layout;
 
-const Sidebar: React.FC = () => {
+const Sidebar: FC = () => {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
@@ -19,7 +19,6 @@ const Sidebar: React.FC = () => {
       onCollapse={(value) => setCollapsed(value)}
       className={styles.side}
     >
-      <div className={styles.logo}>Logo</div>
       <Menu mode="inline" defaultSelectedKeys={["1"]} className={styles.menu}>
         <Menu.Item key="1" icon={<DashboardOutlined />}>
           Home

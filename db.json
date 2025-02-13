@@ -1,0 +1,19 @@
+{
+    "refundOrders": [
+      {
+        "id": "1",
+        "reason": "Product defect",
+        "store_name": "Tech Store",
+        "store_logo": "https://via.placeholder.com/50",
+        "store_url": "https://techstore.com",
+        "amount": 150,
+        "active": true,
+        "decision": null,
+        "items": [
+          { "id": "item1", "name": "Laptop", "price": 100, "quantity": 1 },
+          { "id": "item2", "name": "Mouse", "price": 50, "quantity": 1 }
+        ]
+      }
+    ]
+  }
+  
