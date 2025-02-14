@@ -8,7 +8,7 @@
       "store_url": "https://techstore.com",
       "amount": 150,
       "active": false,
-      "decision": "Accept",
+      "decision": "Reject",
       "items": [
         {
           "id": "item1",
@@ -31,8 +31,8 @@
       "store_logo": "https://via.placeholder.com/50",
       "store_url": "https://fashionhub.com",
       "amount": 80,
-      "active": false,
-      "decision": "Escalate",
+      "active": true,
+      "decision": "Reject",
       "items": [
         {
           "id": "item3",
