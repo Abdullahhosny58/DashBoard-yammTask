@@ -7,7 +7,7 @@
       "store_logo": "https://via.placeholder.com/50",
       "store_url": "https://techstore.com",
       "amount": 150,
-      "active": true,
+      "active": false,
       "decision": "Accept",
       "items": [
         {
@@ -31,8 +31,8 @@
       "store_logo": "https://via.placeholder.com/50",
       "store_url": "https://fashionhub.com",
       "amount": 80,
-      "active": true,
-      "decision": "Approved",
+      "active": false,
+      "decision": "Escalate",
       "items": [
         {
           "id": "item3",
@@ -67,7 +67,7 @@
       "store_logo": "https://via.placeholder.com/50",
       "store_url": "https://homeessentials.com",
       "amount": 60,
-      "active": false,
+      "active": true,
       "decision": "Rejected",
       "items": [
         {
@@ -85,7 +85,7 @@
       "store_logo": "https://via.placeholder.com/50",
       "store_url": "https://gadgetzone.com",
       "amount": 200,
-      "active": true,
+      "active": false,
       "decision": null,
       "items": [
         {
@@ -103,7 +103,7 @@
       "store_logo": "https://via.placeholder.com/50",
       "store_url": "https://onlinemart.com",
       "amount": 45,
-      "active": false,
+      "active": true,
       "decision": "Approved",
       "items": [
         {

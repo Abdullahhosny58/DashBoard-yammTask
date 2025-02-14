@@ -1,25 +1,22 @@
-"use client";
-
+"use client"
 import CustomTable from "@/components/Shared/Table/CustomTable";
 import { ColumnsType } from "antd/es/table";
 import { useState } from "react";
-import { Switch, Button } from "antd";
+import { Switch, Button, Dropdown } from "antd";
 import { MoreOutlined } from "@ant-design/icons";
 import useGetRefundOrders from "@/query/TableContentQuery";
-import Dropdown from "antd/es/dropdown/dropdown";
 import usePostRefundOrders from "@/query/TableContentMutation";
-import CustomNotification from "@/components/Shared/Notification";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { DataType } from "./type";
-
-
+import CustomAlert from "@/components/Shared/Notification/CustomAlert";
 
 const TableContent = () => {
+    const [alertMessage, setAlertMessage] = useState<{ type: "success" | "error"; message: string } | null>(null);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 10;
 
-    const { data: refundOrders = [], isLoading, refetch } = useGetRefundOrders();  
+    const { data: refundOrders = [], isLoading, refetch } = useGetRefundOrders();
     const { mutate, isPending } = usePostRefundOrders();
 
     const updateDecision = async (id: string, decision: string) => {
@@ -30,17 +27,11 @@ const TableContent = () => {
     const handleDecisionChange = (record: DataType, decision: string) => {
         updateDecision(record.id, decision)
             .then((res) => {
-                CustomNotification({
-                    type: "success",
-                    message: res?.message || "Decision updated successfully",
-                });
-                refetch(); 
+                setAlertMessage({ type: "success", message: res?.message || "Decision updated successfully" });
+                refetch();
             })
             .catch((error) => {
-                CustomNotification({
-                    type: "error",
-                    message: error.message || "Failed to update decision",
-                });
+                setAlertMessage({ type: "error", message: error.message || "Failed to update decision" });
             });
     };
 
@@ -53,22 +44,16 @@ const TableContent = () => {
             { id: record.id, active: checked },
             {
                 onSuccess: (res) => {
-                    CustomNotification({
-                        type: "success",
-                        message: res?.message || "Active status updated successfully",
-                    });
+                    setAlertMessage({ type: "success", message: res?.message || "Active status updated successfully" });
                     refetch();
                 },
                 onError: (error) => {
-                    CustomNotification({
-                        type: "error",
-                        message: error.message || "Failed to update active status",
-                    });
+                    setAlertMessage({ type: "error", message: error.message || "Failed to update active status" });
                 },
             }
         );
     };
-    
+
     const router = useRouter();
 
     const handleViewDetails = (record: DataType) => {
@@ -111,9 +96,9 @@ const TableContent = () => {
                     <Dropdown
                         menu={{
                             items: [
-                                { key: "reject", label: "Reject", onClick: () => handleDecisionChange(record, "Reject") },
-                                { key: "accept", label: "Accept", onClick: () => handleDecisionChange(record, "Accept") },
-                                { key: "escalate", label: "Escalate", onClick: () => handleDecisionChange(record, "Escalate") },
+                                { key: `reject-${record.id}`, label: "Reject", onClick: () => handleDecisionChange(record, "Reject") },
+                                { key: `accept-${record.id}`, label: "Accept", onClick: () => handleDecisionChange(record, "Accept") },
+                                { key: `escalate-${record.id}`, label: "Escalate", onClick: () => handleDecisionChange(record, "Escalate") },
                             ],
                         }}
                         trigger={["click"]}
@@ -126,7 +111,6 @@ const TableContent = () => {
         },
     ];
 
-    
     const totalRecords = refundOrders?.length || 0;
     const totalPages = Math.ceil(totalRecords / itemsPerPage);
     const startIndex = (currentPage - 1) * itemsPerPage;
@@ -137,17 +121,26 @@ const TableContent = () => {
     };
 
     return (
-    <div style={{ display: "flex", justifyContent: "center", height: "80vh", overflowY: "auto" }}>
-            <CustomTable
-                dataSource={paginatedData} 
-                columns={columns}
-                onPageChange={handlePageChange}
-                page={currentPage}
-                items={itemsPerPage}
-                pages={totalPages}
-                loading={isLoading}
-                scroll={{ x: "max-content" }}
-            />
+        <div style={{ display: "flex", justifyContent: "center", height: "80vh", overflowY: "auto" }}>
+            <div>
+                {alertMessage && (
+                    <CustomAlert
+                        type={alertMessage.type}
+                        message={alertMessage.message}
+                        onClose={() => setAlertMessage(null)}
+                    />
+                )}
+                <CustomTable
+                    dataSource={paginatedData}
+                    columns={columns}
+                    onPageChange={handlePageChange}
+                    page={currentPage}
+                    items={itemsPerPage}
+                    pages={totalPages}
+                    loading={isLoading}
+                    scroll={{ x: "max-content" }}
+                />
+            </div>
         </div>
     );
 };
