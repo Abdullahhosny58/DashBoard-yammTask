@@ -10,6 +10,7 @@ import Dropdown from "antd/es/dropdown/dropdown";
 import usePostRefundOrders from "@/query/TableContentMutation";
 import CustomNotification from "@/components/Shared/Notification";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 interface DataType {
     key: string;
@@ -26,6 +27,8 @@ interface DataType {
 
 const TableContent = () => {
     const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 10;
+
     const { data: refundOrders = [], isLoading, refetch } = useGetRefundOrders();  
     const { mutate, isPending } = usePostRefundOrders();
 
@@ -37,18 +40,13 @@ const TableContent = () => {
     const handleDecisionChange = (record: DataType, decision: string) => {
         updateDecision(record.id, decision)
             .then((res) => {
-                console.log(`Decision for order ${record.id} updated successfully to ${decision}`);
-
                 CustomNotification({
                     type: "success",
                     message: res?.message || "Decision updated successfully",
                 });
-
-                refetch(); // Fetch updated data from the server
+                refetch(); 
             })
             .catch((error) => {
-                console.error(`Failed to update decision for order ${record.id}:`, error);
-
                 CustomNotification({
                     type: "error",
                     message: error.message || "Failed to update decision",
@@ -58,7 +56,6 @@ const TableContent = () => {
 
     const handleActiveChange = (record: DataType, checked: boolean) => {
         if (!record.id || !record.reason || !record.store_name || !record.items) {
-            console.error("Incomplete data, cannot update active status");
             return;
         }
 
@@ -66,18 +63,13 @@ const TableContent = () => {
             { id: record.id, active: checked },
             {
                 onSuccess: (res) => {
-                    console.log(`Active status for order ${record.id} updated successfully`);
-
                     CustomNotification({
                         type: "success",
                         message: res?.message || "Active status updated successfully",
                     });
-
                     refetch();
                 },
                 onError: (error) => {
-                    console.error(`Failed to update active status for order ${record.id}:`, error);
-
                     CustomNotification({
                         type: "error",
                         message: error.message || "Failed to update active status",
@@ -86,9 +78,11 @@ const TableContent = () => {
             }
         );
     };
+    
+    const router = useRouter();
 
     const handleViewDetails = (record: DataType) => {
-        console.log(`Viewing details for order ${record.id}`);
+        router.push(`/products/${record.id}`);
     };
 
     const columns: ColumnsType<DataType> = [
@@ -109,7 +103,7 @@ const TableContent = () => {
                 <Switch
                     checked={record.active}
                     onChange={(checked) => handleActiveChange(record, checked)}
-                    loading={isPending} // Show loading state when updating
+                    loading={isPending}
                 />
             ),
         },
@@ -117,7 +111,7 @@ const TableContent = () => {
             title: "Items",
             dataIndex: "items",
             key: "items",
-            render: (_, record) => `${record.items.length} items`,
+            render: (_, record) => `${record.items?.length || 0} items`,
         },
         {
             title: "Actions",
@@ -127,21 +121,9 @@ const TableContent = () => {
                     <Dropdown
                         menu={{
                             items: [
-                                {
-                                    key: "reject",
-                                    label: "Reject",
-                                    onClick: () => handleDecisionChange(record, "Reject"),
-                                },
-                                {
-                                    key: "accept",
-                                    label: "Accept",
-                                    onClick: () => handleDecisionChange(record, "Accept"),
-                                },
-                                {
-                                    key: "escalate",
-                                    label: "Escalate",
-                                    onClick: () => handleDecisionChange(record, "Escalate"),
-                                },
+                                { key: "reject", label: "Reject", onClick: () => handleDecisionChange(record, "Reject") },
+                                { key: "accept", label: "Accept", onClick: () => handleDecisionChange(record, "Accept") },
+                                { key: "escalate", label: "Escalate", onClick: () => handleDecisionChange(record, "Escalate") },
                             ],
                         }}
                         trigger={["click"]}
@@ -154,6 +136,12 @@ const TableContent = () => {
         },
     ];
 
+    // **Frontend Pagination Logic**
+    const totalRecords = refundOrders?.length || 0;
+    const totalPages = Math.ceil(totalRecords / itemsPerPage);
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const paginatedData = refundOrders?.slice(startIndex, startIndex + itemsPerPage) || [];
+
     const handlePageChange = (page: number) => {
         setCurrentPage(page);
     };
@@ -161,12 +149,12 @@ const TableContent = () => {
     return (
         <div style={{ display: "flex", justifyContent: "center" }}>
             <CustomTable
-                dataSource={refundOrders} 
+                dataSource={paginatedData} 
                 columns={columns}
                 onPageChange={handlePageChange}
                 page={currentPage}
-                items={10}
-                pages={5}
+                items={itemsPerPage}
+                pages={totalPages}
                 loading={isLoading}
             />
         </div>

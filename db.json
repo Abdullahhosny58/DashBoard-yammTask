@@ -7,7 +7,7 @@
       "store_logo": "https://via.placeholder.com/50",
       "store_url": "https://techstore.com",
       "amount": 150,
-      "active": false,
+      "active": true,
       "decision": "Escalate",
       "items": [
         {
@@ -31,7 +31,7 @@
       "store_logo": "https://via.placeholder.com/50",
       "store_url": "https://fashionhub.com",
       "amount": 80,
-      "active": false,
+      "active": true,
       "decision": "Approved",
       "items": [
         {
@@ -293,39 +293,7 @@
           "quantity": 1
         }
       ]
-    },
-    {
-      "id": "7f5f"
-    },
-    {
-      "id": "4845"
-    },
-    {
-      "id": "e3fb"
-    },
-    {
-      "id": "ea02"
-    },
-    {
-      "id": "1510"
-    },
-    {
-      "id": "72cc"
-    },
-    {
-      "id": "9cb7"
-    },
-    {
-      "id": "20a1"
-    },
-    {
-      "id": "4f89"
-    },
-    {
-      "id": "0105"
-    },
-    {
-      "id": "63d2"
     }
+  
   ]
 }

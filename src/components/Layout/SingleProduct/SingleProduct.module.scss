@@ -1,0 +1,31 @@
+.card {
+    width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .storeContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .storeInfo {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .productDetails {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .tableContainer {
+    margin-top: 20px;
+  }
+  
