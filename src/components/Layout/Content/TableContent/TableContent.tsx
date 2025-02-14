@@ -137,7 +137,7 @@ const TableContent = () => {
     };
 
     return (
-        <div style={{ display: "flex", justifyContent: "center", height: "80vh", overflowY: "auto" }}>
+    <div style={{ display: "flex", justifyContent: "center", height: "80vh", overflowY: "auto" }}>
             <CustomTable
                 dataSource={paginatedData} 
                 columns={columns}
@@ -146,6 +146,7 @@ const TableContent = () => {
                 items={itemsPerPage}
                 pages={totalPages}
                 loading={isLoading}
+                scroll={{ x: "max-content" }}
             />
         </div>
     );
