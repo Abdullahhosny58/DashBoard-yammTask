@@ -8,7 +8,7 @@
       "store_url": "https://techstore.com",
       "amount": 150,
       "active": true,
-      "decision": "Escalate",
+      "decision": "Accept",
       "items": [
         {
           "id": "item1",
@@ -294,6 +294,5 @@
         }
       ]
     }
-  
   ]
 }

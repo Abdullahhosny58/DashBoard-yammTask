@@ -24,7 +24,7 @@ const Navbar: FC<NavbarProps> = ({ toggleSidebar }) => {
       />
 
       <Flex align="center" justify="space-between">
-        <Flex className={styles.logo}>MyApp</Flex>
+        <Flex className={styles.logo}>Dashboard</Flex>
 
         <Flex>
           <Flex className={styles.actions}>
