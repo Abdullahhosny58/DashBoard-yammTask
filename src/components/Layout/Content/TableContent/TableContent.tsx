@@ -11,19 +11,9 @@ import usePostRefundOrders from "@/query/TableContentMutation";
 import CustomNotification from "@/components/Shared/Notification";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { DataType } from "./type";
 
-interface DataType {
-    key: string;
-    id: string;
-    reason: string;
-    store_name: string;
-    store_logo: string;
-    store_url: string;
-    amount: number;
-    active: boolean;
-    decision: string;
-    items: { id: string; name: string; price: number; quantity: number }[];
-}
+
 
 const TableContent = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -136,7 +126,7 @@ const TableContent = () => {
         },
     ];
 
-    // **Frontend Pagination Logic**
+    
     const totalRecords = refundOrders?.length || 0;
     const totalPages = Math.ceil(totalRecords / itemsPerPage);
     const startIndex = (currentPage - 1) * itemsPerPage;
