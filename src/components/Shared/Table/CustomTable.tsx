@@ -3,15 +3,15 @@
 import { Table, TableProps } from "antd";
 import { useState } from "react";
 
-interface CustomTableProps extends TableProps {
+interface CustomTableProps<T> extends TableProps<T> {
     onPageChange?: (page: number) => void;
     page?: number;
     items?: number;
     pages?: number;
-    rowSelection?: any;
+    rowSelection?: TableProps<T>["rowSelection"];
 }
 
-const CustomTable = ({
+const CustomTable = <T extends object>({
     dataSource = [],
     columns = [],
     children,
@@ -21,11 +21,11 @@ const CustomTable = ({
     items = 10,
     pages = 0,
     ...restProps
-}: CustomTableProps) => {
+}: CustomTableProps<T>) => {
     const [currentPage, setCurrentPage] = useState(page);
 
-    const handleTableChange = (paginationValue: any) => {
-        const newPage = paginationValue.current;
+    const handleTableChange: TableProps<T>["onChange"] = (pagination) => {
+        const newPage = pagination?.current ?? 1;
         setCurrentPage(newPage);
         if (onPageChange) {
             onPageChange(newPage);
