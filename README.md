@@ -25,7 +25,9 @@ json-server --watch db.json --port 5000
 The fake API will be available at [http://localhost:5000](http://localhost:5000).  
 
 ---
+### Run Tests: 
 
+npm run test
 ## 📂 Project Structure  
 
 ```
