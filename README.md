@@ -107,7 +107,6 @@ DashBoard-yammTask
 ## 📦 Libraries Used  
 
 - **Next.js** - React framework for server-side rendering  
-- **React Router** - Client-side routing  
 - **TypeScript** - Statically typed JavaScript  
 - **Axios** - HTTP client for API calls  
 - **Ant Design** - UI component library  
