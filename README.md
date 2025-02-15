@@ -1,36 +1,134 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Frontend Challenge  
 
-## Getting Started
+A simple and responsive dashboard built with **Next.js, React, and TypeScript**. It features a clean UI, efficient state management, and a well-structured component architecture, ensuring scalability and maintainability.  
 
-First, run the development server:
+## 🚀 Deployed App  
+[Add your deployed link here]  
 
+## 🛠 Running Instructions  
+
+### Install dependencies:  
+```bash
+npm install
+```  
+
+### Start development server:  
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```  
+The app will be available at [http://localhost:3000/](http://localhost:3000/) in your browser.  
+
+### Run JSON server:  
+```bash
+json-server --watch db.json --port 5000
+```  
+The fake API will be available at [http://localhost:5000](http://localhost:5000).  
+
+---
+### Run Tests: 
+```bash
+npm run test
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📂 Project Structure  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+DashBoard-yammTask
+├─ db.json
+├─ eslint.config.mjs
+├─ next.config.ts
+├─ package-lock.json
+├─ package.json
+├─ README.md
+├─ src
+│  ├─ app
+│  │  ├─ layout.tsx
+│  │  ├─ page.tsx
+│  │  └─ products
+│  │     └─ [productId]
+│  │        └─ page.tsx
+│  ├─ components
+│  │  ├─ Layout
+│  │  │  ├─ Content
+│  │  │  │  └─ TableContent
+│  │  │  │     ├─ TableContent.module.scss
+│  │  │  │     ├─ TableContent.tsx
+│  │  │  │     └─ type.ts
+│  │  │  ├─ DashboardLayout
+│  │  │  │  ├─ DashboardLayout.module.scss
+│  │  │  │  └─ DashboardLayout.tsx
+│  │  │  ├─ Navbar
+│  │  │  │  ├─ Navbar.module.scss
+│  │  │  │  ├─ Navbar.test.tsx
+│  │  │  │  └─ Navbar.tsx
+│  │  │  ├─ Sidebar
+│  │  │  │  ├─ Sidebar.module.scss
+│  │  │  │  ├─ Sidebar.test.tsx
+│  │  │  │  └─ Sidebar.tsx
+│  │  │  └─ SingleProduct
+│  │  │     ├─ columns.ts
+│  │  │     ├─ SingleProduct.module.scss
+│  │  │     └─ SingleProduct.tsx
+│  │  └─ Shared
+│  │     ├─ Button
+│  │     │  └─ CustomButton.tsx
+│  │     ├─ Dropdown
+│  │     │  └─ ActionsDropdown
+│  │     │     └─ index.tsx
+│  │     ├─ Notification
+│  │     │  └─ CustomAlert.tsx
+│  │     └─ Table
+│  │        ├─ columns.tsx
+│  │        └─ CustomTable.tsx
+│  ├─ providers
+│  │  └─ Providers.tsx
+│  ├─ query
+│  │  ├─ ProductId
+│  │  │  └─ index.ts
+│  │  ├─ TableContentMutation
+│  │  │  └─ index.ts
+│  │  └─ TableContentQuery
+│  │     └─ index.ts
+│  ├─ services
+│  │  └─ TableContent
+│  │     ├─ index.ts
+│  │     ├─ postTableContent.ts
+│  │     ├─ singleProductId.ts
+│  │     └─ type.ts
+│  └─ styles
+│     └─ globals.scss
+├─ tsconfig.json
+├─ vitest.config.ts
+└─ vitest.setup.ts
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📦 Libraries Used  
 
-To learn more about Next.js, take a look at the following resources:
+- **Next.js** - React framework for server-side rendering  
+- **TypeScript** - Statically typed JavaScript  
+- **Axios** - HTTP client for API calls  
+- **Ant Design** - UI component library  
+- **React Query** - Efficient data fetching  
+- **SASS** - CSS preprocessor  
+- **Vitest** - Unit testing framework  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🎨 Code Formatting  
 
-## Deploy on Vercel
+- **Prettier** - Ensures consistent code styling  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🚀 Improvements  
+
+- **Make it fully responsive** 📱  
+- **Add GitHub Actions workflow** for automated deployments 🚀  
+- **Write unit and integration tests** to improve code quality 🧪  
+
+---
+
+### 🎯 *Make it amazing!* 😃
+

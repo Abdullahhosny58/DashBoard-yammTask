@@ -7,7 +7,7 @@
       "store_logo": "https://via.placeholder.com/50",
       "store_url": "https://techstore.com",
       "amount": 150,
-      "active": false,
+      "active": true,
       "decision": "Reject",
       "items": [
         {
@@ -67,8 +67,8 @@
       "store_logo": "https://via.placeholder.com/50",
       "store_url": "https://homeessentials.com",
       "amount": 60,
-      "active": true,
-      "decision": "Rejected",
+      "active": false,
+      "decision": "Reject",
       "items": [
         {
           "id": "item5",

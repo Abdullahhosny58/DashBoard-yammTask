@@ -1,0 +1,35 @@
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #1e1e2f;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: transform 0.3s ease-in-out;
+  
+    @media (max-width: 768px) {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .sidebarOpen {
+    transform: translateX(0) !important;
+  }
+  
+  .dashboardContent {
+    margin-left: 250px;
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 250px);
+    transition: margin-left 0.3s ease-in-out;
+  
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
+  
+  .content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
