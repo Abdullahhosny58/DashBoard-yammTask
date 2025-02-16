@@ -2,18 +2,15 @@
 
 import React, { FC } from "react";
 import { Layout, Button, Flex } from "antd";
-import {  UserOutlined, BellOutlined } from "@ant-design/icons";
+import { UserOutlined, BellOutlined } from "@ant-design/icons";
 import styles from "./Navbar.module.scss";
 
 const { Header } = Layout;
 
-
-const Navbar: FC= () => {
+const Navbar: FC = () => {
   return (
     <Header className={styles.navbar}>
-      
-
-      <Flex align="center" justify="space-between">
+      <Flex align="center" justify="space-between" className={styles.container}>
         <Flex className={styles.logo}>Dashboard</Flex>
 
         <Flex>

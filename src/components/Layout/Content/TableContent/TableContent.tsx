@@ -1,7 +1,7 @@
 "use client";
 import CustomTable from "@/components/Shared/Table/CustomTable";
 import { ColumnsType } from "antd/es/table";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Switch, Button, Dropdown } from "antd";
 import { MoreOutlined } from "@ant-design/icons";
 import useGetRefundOrders from "@/query/TableContentQuery";
@@ -18,9 +18,16 @@ const TableContent = () => {
   } | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
+  const topRef = useRef<HTMLDivElement>(null);
 
   const { data: refundOrders = [], isLoading, refetch } = useGetRefundOrders();
   const { mutate, isPending } = usePostRefundOrders();
+
+  useEffect(() => {
+    if (alertMessage) {
+      topRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [alertMessage]);
 
   const updateDecision = async (id: string, decision: string) => {
     const response = await axios.patch(
@@ -162,25 +169,24 @@ const TableContent = () => {
         overflowX: "auto",
       }}
     >
-      <div>
-        {alertMessage && (
-          <CustomAlert
-            type={alertMessage.type}
-            message={alertMessage.message}
-            onClose={() => setAlertMessage(null)}
-          />
-        )}
-        <CustomTable
-          dataSource={paginatedData}
-          columns={columns}
-          onPageChange={handlePageChange}
-          page={currentPage}
-          items={itemsPerPage}
-          pages={totalPages}
-          loading={isLoading}
-          scroll={{ x: "max-content" }}
+      <div ref={topRef}></div>
+      {alertMessage && (
+        <CustomAlert
+          type={alertMessage.type}
+          message={alertMessage.message}
+          onClose={() => setAlertMessage(null)}
         />
-      </div>
+      )}
+      <CustomTable
+        dataSource={paginatedData}
+        columns={columns}
+        onPageChange={handlePageChange}
+        page={currentPage}
+        items={itemsPerPage}
+        pages={totalPages}
+        loading={isLoading}
+        scroll={{ x: "max-content" }}
+      />
     </div>
   );
 };

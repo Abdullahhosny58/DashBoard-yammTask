@@ -4,10 +4,33 @@
   top: 10%;
   bottom: 0;
   background-color: var(--clr-bg-white) !important;
-  border-right: 1px solid var( --clr-border-gray);
+  border-right: 1px solid var(--clr-border-gray);
   padding-top: 10px;
+  transition: all 0.3s ease-in-out;
+
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
+.menuButton {
+  display: none; 
+
+  @media (max-width: 768px) {
+    display: block;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1000;
+    background-color: var(--clr-bg-white);
+    color: var( --clr-black);
+    border: 1px solid var(--clr-border-gray);
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}
 
 .menu {
   .ant-menu-item {
