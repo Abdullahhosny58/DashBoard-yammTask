@@ -2,8 +2,6 @@
 
 A simple and responsive dashboard built with **Next.js, React, and TypeScript**. It features a clean UI, efficient state management, and a well-structured component architecture, ensuring scalability and maintainability.  
 
-## 🚀 Deployed App  
-[Add your deployed link here]  
 
 ## 🛠 Running Instructions  
 
